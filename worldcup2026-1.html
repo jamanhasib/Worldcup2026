@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FIFA বিশ্বকাপ ২০২৬ - সম্পূর্ণ সময়সূচী</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#FFD700">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="WC 2026">
+<link rel="apple-touch-icon" href="icon-512.png">
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Bangla:ital@0;1&family=Bebas+Neue&family=Oswald:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #FFD700;
+    --gold2: #FFA500;
+    --dark: #0a0e1a;
+    --dark2: #111827;
+    --dark3: #1a2236;
+    --card: #141c2e;
+    --border: rgba(255,215,0,0.15);
+    --text: #e8eaf6;
+    --muted: #8892a4;
+    --green: #00c853;
+    --red: #ff1744;
+    --blue: #2979ff;
+    --accent: #00e5ff;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    background: var(--dark);
+    color: var(--text);
+    font-family: 'Tiro Bangla', serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ANIMATED BACKGROUND */
+  body::before {
+    content:'';
+    position:fixed; inset:0; z-index:0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% -10%, rgba(255,215,0,0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 40% at 90% 90%, rgba(0,229,255,0.05) 0%, transparent 60%),
+      linear-gradient(180deg, #0a0e1a 0%, #0d1526 50%, #0a0e1a 100%);
+    pointer-events:none;
+  }
+
+  /* HEADER */
+  header {
+    position:relative; z-index:10;
+    text-align:center;
+    padding: 40px 20px 30px;
+    background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, transparent 100%);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .logo-area {
+    display:flex; align-items:center; justify-content:center; gap:24px;
+    margin-bottom:20px; flex-wrap:wrap;
+  }
+
+  /* FIFA SVG LOGO */
+  .wc-emblem {
+    width:110px; height:110px;
+    filter: drop-shadow(0 0 20px rgba(255,215,0,0.5));
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%,100% { filter: drop-shadow(0 0 20px rgba(255,215,0,0.4)); }
+    50% { filter: drop-shadow(0 0 35px rgba(255,215,0,0.8)); }
+  }
+
+  .title-block { text-align:left; }
+
+  .title-top {
+    font-family:'Bebas Neue', sans-serif;
+    font-size:clamp(28px,5vw,52px);
+    letter-spacing:4px;
+    color: var(--gold);
+    line-height:1;
+    text-shadow: 0 0 30px rgba(255,215,0,0.4);
+  }
+
+  .title-sub {
+    font-family:'Oswald', sans-serif;
+    font-size:clamp(14px,2.5vw,22px);
+    color: var(--accent);
+    letter-spacing:2px;
+    font-weight:300;
+    margin-top:4px;
+  }
+
+  .title-bn {
+    font-family:'Tiro Bangla', serif;
+    font-size:clamp(16px,3vw,26px);
+    color: rgba(255,255,255,0.7);
+    margin-top:2px;
+  }
+
+  /* HOST BADGES */
+  .host-badges {
+    display:flex; gap:12px; justify-content:center;
+    margin:16px 0 0;
+    flex-wrap:wrap;
+  }
+
+  .host-badge {
+    background: rgba(255,215,0,0.1);
+    border: 1px solid rgba(255,215,0,0.3);
+    padding: 5px 14px;
+    border-radius:20px;
+    font-family:'Oswald',sans-serif;
+    font-size:13px;
+    letter-spacing:1px;
+    color: var(--gold);
+    display:flex; align-items:center; gap:6px;
+  }
+
+  /* STAGE TABS */
+  .stage-nav {
+    position:relative; z-index:10;
+    display:flex; gap:4px; justify-content:center;
+    padding:16px 12px;
+    overflow-x:auto; flex-wrap:nowrap;
+    background: rgba(0,0,0,0.3);
+    scrollbar-width:none;
+  }
+  .stage-nav::-webkit-scrollbar { display:none; }
+
+  .stage-btn {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    color: var(--muted);
+    padding:8px 16px;
+    border-radius:6px;
+    cursor:pointer;
+    font-family:'Oswald',sans-serif;
+    font-size:13px;
+    letter-spacing:1px;
+    white-space:nowrap;
+    transition: all .25s;
+  }
+
+  .stage-btn:hover {
+    background: rgba(255,215,0,0.1);
+    color: var(--gold);
+    border-color: rgba(255,215,0,0.3);
+  }
+
+  .stage-btn.active {
+    background: linear-gradient(135deg, rgba(255,215,0,0.25), rgba(255,165,0,0.15));
+    border-color: rgba(255,215,0,0.6);
+    color: var(--gold);
+    box-shadow: 0 0 12px rgba(255,215,0,0.15);
+  }
+
+  /* MAIN CONTENT */
+  main {
+    position:relative; z-index:5;
+    max-width:1200px; margin:0 auto;
+    padding:24px 16px 60px;
+  }
+
+  /* STATS BAR */
+  .stats-bar {
+    display:flex; gap:16px; justify-content:center;
+    margin-bottom:28px; flex-wrap:wrap;
+  }
+
+  .stat-chip {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius:8px;
+    padding:10px 20px;
+    text-align:center;
+  }
+
+  .stat-num {
+    font-family:'Bebas Neue',sans-serif;
+    font-size:28px;
+    color: var(--gold);
+    line-height:1;
+  }
+
+  .stat-lbl {
+    font-size:11px;
+    color: var(--muted);
+    font-family:'Oswald',sans-serif;
+    letter-spacing:1px;
+    margin-top:2px;
+  }
+
+  /* SECTION HEADING */
+  .section-day {
+    display:flex; align-items:center; gap:12px;
+    margin: 28px 0 12px;
+  }
+
+  .day-label {
+    font-family:'Bebas Neue',sans-serif;
+    font-size:20px;
+    color: var(--gold);
+    letter-spacing:2px;
+    white-space:nowrap;
+  }
+
+  .day-line {
+    flex:1;
+    height:1px;
+    background: linear-gradient(90deg, rgba(255,215,0,0.4), transparent);
+  }
+
+  .day-count {
+    font-family:'Oswald',sans-serif;
+    font-size:12px;
+    color: var(--muted);
+    background: rgba(255,255,255,0.04);
+    padding:3px 10px;
+    border-radius:10px;
+    letter-spacing:1px;
+  }
+
+  /* MATCH TABLE */
+  .match-table {
+    width:100%;
+    border-collapse:separate;
+    border-spacing:0 6px;
+  }
+
+  .match-table thead tr th {
+    font-family:'Oswald',sans-serif;
+    font-size:12px;
+    letter-spacing:2px;
+    color: var(--muted);
+    padding:8px 12px;
+    text-align:left;
+    background: rgba(0,0,0,0.2);
+    border-bottom:1px solid var(--border);
+  }
+
+  .match-table thead tr th:first-child { border-radius:6px 0 0 6px; }
+  .match-table thead tr th:last-child { border-radius:0 6px 6px 0; }
+
+  .match-row {
+    background: var(--card);
+    transition: all .2s;
+    cursor:default;
+  }
+
+  .match-row:hover {
+    background: rgba(255,215,0,0.05);
+    transform: translateX(2px);
+  }
+
+  .match-row.live {
+    background: rgba(0,200,83,0.06);
+    border-left:3px solid var(--green);
+  }
+
+  .match-row.past {
+    opacity: 0.5;
+  }
+
+  .match-row td {
+    padding:12px;
+    vertical-align:middle;
+    border-top:1px solid rgba(255,255,255,0.03);
+    border-bottom:1px solid rgba(255,255,255,0.03);
+    font-size:14px;
+  }
+
+  .match-row td:first-child {
+    border-left:1px solid rgba(255,255,255,0.04);
+    border-radius:6px 0 0 6px;
+    padding-left:16px;
+  }
+  .match-row td:last-child {
+    border-right:1px solid rgba(255,255,255,0.04);
+    border-radius:0 6px 6px 0;
+    padding-right:16px;
+  }
+
+  /* MATCH CELL */
+  .match-teams {
+    display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+  }
+
+  .group-badge {
+    background: rgba(255,215,0,0.12);
+    color: var(--gold);
+    font-family:'Bebas Neue',sans-serif;
+    font-size:13px;
+    padding:2px 8px;
+    border-radius:4px;
+    letter-spacing:1px;
+    min-width:30px;
+    text-align:center;
+    flex-shrink:0;
+  }
+
+  .match-no-badge {
+    background: rgba(41,121,255,0.15);
+    color: #82b1ff;
+    font-family:'Oswald',sans-serif;
+    font-size:11px;
+    padding:2px 8px;
+    border-radius:4px;
+    letter-spacing:1px;
+    flex-shrink:0;
+  }
+
+  .teams-text {
+    font-family:'Tiro Bangla', serif;
+    font-size:14px;
+    color: #cdd5e0;
+    line-height:1.4;
+  }
+
+  .teams-text .vs {
+    color: var(--gold);
+    font-family:'Bebas Neue',sans-serif;
+    font-size:12px;
+    margin:0 4px;
+  }
+
+  /* VENUE */
+  .venue-cell { font-size:13px; color: var(--muted); }
+  .venue-name { color: #c0c8d8; font-size:13px; }
+  .venue-country { font-size:11px; color: var(--muted); margin-top:2px; }
+
+  /* DATETIME */
+  .datetime-cell { text-align:left; }
+  .match-date { font-family:'Oswald',sans-serif; font-size:13px; color: #9aa5b8; }
+  .match-time { font-family:'Bebas Neue',sans-serif; font-size:20px; color: var(--text); letter-spacing:1px; }
+  .match-tz { font-size:10px; color: var(--muted); font-family:'Oswald',sans-serif; }
+
+  /* COUNTDOWN */
+  .countdown-cell { min-width:160px; }
+
+  .cd-box {
+    background: rgba(0,0,0,0.3);
+    border-radius:8px;
+    padding:8px 12px;
+    border:1px solid rgba(255,255,255,0.06);
+    display:inline-block;
+    min-width:150px;
+  }
+
+  .cd-segments {
+    display:flex; gap:6px; align-items:center;
+  }
+
+  .cd-seg {
+    text-align:center;
+  }
+
+  .cd-num {
+    font-family:'Bebas Neue',sans-serif;
+    font-size:22px;
+    color: var(--gold);
+    line-height:1;
+    display:block;
+    text-shadow: 0 0 10px rgba(255,215,0,0.3);
+  }
+
+  .cd-unit {
+    font-family:'Oswald',sans-serif;
+    font-size:8px;
+    color: var(--muted);
+    letter-spacing:1px;
+    display:block;
+  }
+
+  .cd-sep {
+    font-family:'Bebas Neue',sans-serif;
+    font-size:18px;
+    color: rgba(255,215,0,0.4);
+    line-height:1;
+    padding-bottom:12px;
+  }
+
+  .cd-live {
+    font-family:'Bebas Neue',sans-serif;
+    font-size:18px;
+    color: var(--green);
+    letter-spacing:2px;
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes blink {
+    0%,100% { opacity:1; } 50% { opacity:0.3; }
+  }
+
+  .cd-done {
+    font-family:'Oswald',sans-serif;
+    font-size:12px;
+    color: var(--muted);
+    letter-spacing:1px;
+  }
+
+  /* KNOCKOUT LABELS */
+  .ko-desc {
+    font-size:11px; color: var(--accent);
+    font-family:'Oswald',sans-serif;
+    margin-top:2px;
+    opacity:0.8;
+  }
+
+  /* STAGE SECTION HEADER */
+  .stage-header {
+    display:flex; align-items:center; gap:16px;
+    margin:40px 0 20px;
+    padding:16px 20px;
+    background: linear-gradient(135deg, rgba(255,215,0,0.08), rgba(0,229,255,0.04));
+    border-radius:10px;
+    border:1px solid rgba(255,215,0,0.2);
+  }
+
+  .stage-icon { font-size:28px; }
+
+  .stage-title {
+    font-family:'Bebas Neue',sans-serif;
+    font-size:28px;
+    color: var(--gold);
+    letter-spacing:3px;
+  }
+
+  .stage-dates {
+    font-family:'Oswald',sans-serif;
+    font-size:13px;
+    color: var(--muted);
+    margin-top:2px;
+    letter-spacing:1px;
+  }
+
+  /* HIDDEN SECTIONS */
+  .stage-section { display:none; }
+  .stage-section.visible { display:block; }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width:6px; height:6px; }
+  ::-webkit-scrollbar-track { background: rgba(255,255,255,0.02); }
+  ::-webkit-scrollbar-thumb { background: rgba(255,215,0,0.2); border-radius:3px; }
+
+  /* FOOTER */
+  footer {
+    text-align:center;
+    padding:24px;
+    color: var(--muted);
+    font-size:12px;
+    font-family:'Oswald',sans-serif;
+    letter-spacing:1px;
+    border-top:1px solid var(--border);
+    position:relative; z-index:5;
+  }
+
+  /* RESPONSIVE */
+  @media(max-width:768px) {
+    .match-table thead { display:none; }
+    .match-table, .match-table tbody, .match-row, .match-row td { display:block; width:100%; }
+    .match-row { margin-bottom:8px; padding:12px; border-radius:8px; border:1px solid rgba(255,255,255,0.06); }
+    .match-row td { border:none; padding:4px 0; }
+    .match-row td::before {
+      content: attr(data-label);
+      display:block;
+      font-size:10px;
+      color: var(--muted);
+      font-family:'Oswald',sans-serif;
+      letter-spacing:1px;
+      margin-bottom:3px;
+    }
+    .cd-box { min-width:auto; }
+    .logo-area { flex-direction:column; gap:12px; }
+    .title-block { text-align:center; }
+  }
+
+  /* TICKER */
+  .ticker-bar {
+    background: rgba(255,215,0,0.07);
+    border-bottom:1px solid rgba(255,215,0,0.15);
+    padding:8px 0;
+    overflow:hidden;
+    position:relative; z-index:9;
+  }
+  .ticker-inner {
+    display:flex; gap:60px;
+    animation: ticker 60s linear infinite;
+    white-space:nowrap;
+  }
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .ticker-item {
+    font-family:'Oswald',sans-serif;
+    font-size:13px;
+    letter-spacing:1px;
+    color: var(--gold);
+    flex-shrink:0;
+  }
+  .ticker-dot { color: var(--accent); margin:0 8px; }
+</style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker-bar">
+  <div class="ticker-inner" id="ticker">
+    <span class="ticker-item">🏆 FIFA বিশ্বকাপ ২০২৬ <span class="ticker-dot">◆</span> ১১ জুন – ১৯ জুলাই ২০২৬ <span class="ticker-dot">◆</span> যুক্তরাষ্ট্র, কানাডা ও মেক্সিকো <span class="ticker-dot">◆</span> ৪৮ দল <span class="ticker-dot">◆</span> ১০৪টি ম্যাচ <span class="ticker-dot">◆</span> ১৬টি ভেন্যু <span class="ticker-dot">◆</span> উদ্বোধনী ম্যাচ: মেক্সিকো বনাম দক্ষিণ আফ্রিকা <span class="ticker-dot">◆</span> ফাইনাল: মেটলাইফ স্টেডিয়াম, নিউ জার্সি</span>
+    <span class="ticker-item">🏆 FIFA বিশ্বকাপ ২০২৬ <span class="ticker-dot">◆</span> ১১ জুন – ১৯ জুলাই ২০২৬ <span class="ticker-dot">◆</span> যুক্তরাষ্ট্র, কানাডা ও মেক্সিকো <span class="ticker-dot">◆</span> ৪৮ দল <span class="ticker-dot">◆</span> ১০৪টি ম্যাচ <span class="ticker-dot">◆</span> ১৬টি ভেন্যু <span class="ticker-dot">◆</span> উদ্বোধনী ম্যাচ: মেক্সিকো বনাম দক্ষিণ আফ্রিকা <span class="ticker-dot">◆</span> ফাইনাল: মেটলাইফ স্টেডিয়াম, নিউ জার্সি</span>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="logo-area">
+    <!-- FIFA World Cup 2026 SVG Emblem -->
+    <svg class="wc-emblem" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="bgGrad" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#1a2a4a"/>
+          <stop offset="100%" stop-color="#0a0e1a"/>
+        </radialGradient>
+        <radialGradient id="goldGrad" cx="50%" cy="30%" r="70%">
+          <stop offset="0%" stop-color="#FFE566"/>
+          <stop offset="60%" stop-color="#FFD700"/>
+          <stop offset="100%" stop-color="#CC8800"/>
+        </radialGradient>
+        <filter id="glow">
+          <feGaussianBlur stdDeviation="3" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+      <!-- Background circle -->
+      <circle cx="100" cy="100" r="98" fill="url(#bgGrad)" stroke="url(#goldGrad)" stroke-width="2.5"/>
+      <!-- Trophy Cup body -->
+      <path d="M100 30 C90 30 75 40 72 55 L68 75 L132 75 L128 55 C125 40 110 30 100 30Z" fill="url(#goldGrad)" filter="url(#glow)"/>
+      <!-- Trophy handles -->
+      <path d="M68 60 C55 58 48 68 52 78 C56 88 66 90 72 85" fill="none" stroke="url(#goldGrad)" stroke-width="6" stroke-linecap="round"/>
+      <path d="M132 60 C145 58 152 68 148 78 C144 88 134 90 128 85" fill="none" stroke="url(#goldGrad)" stroke-width="6" stroke-linecap="round"/>
+      <!-- Trophy stem -->
+      <rect x="94" y="75" width="12" height="30" fill="url(#goldGrad)"/>
+      <!-- Trophy base top -->
+      <rect x="78" y="105" width="44" height="8" rx="3" fill="url(#goldGrad)"/>
+      <!-- Trophy base -->
+      <rect x="70" y="113" width="60" height="10" rx="4" fill="url(#goldGrad)"/>
+      <!-- Star above trophy -->
+      <polygon points="100,15 103,23 111,23 105,28 107,36 100,31 93,36 95,28 89,23 97,23" fill="#FFE566" opacity="0.9"/>
+      <!-- World/football pattern inside cup -->
+      <ellipse cx="100" cy="55" rx="18" ry="14" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+      <line x1="100" y1="41" x2="100" y2="69" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+      <line x1="82" y1="55" x2="118" y2="55" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+      <!-- "2026" text -->
+      <text x="100" y="155" text-anchor="middle" font-family="'Bebas Neue', sans-serif" font-size="22" fill="url(#goldGrad)" letter-spacing="4">2026</text>
+      <!-- "FIFA WORLD CUP" arc text -->
+      <path id="topArc" d="M 30 100 A 70 70 0 0 1 170 100" fill="none"/>
+      <text font-family="'Oswald', sans-serif" font-size="10" fill="#FFD700" letter-spacing="2" opacity="0.85">
+        <textPath href="#topArc" startOffset="15%">FIFA WORLD CUP</textPath>
+      </text>
+      <!-- Stars bottom -->
+      <text x="100" y="178" text-anchor="middle" font-size="12" fill="var(--gold)" opacity="0.7">★ ★ ★</text>
+    </svg>
+
+    <div class="title-block">
+      <div class="title-top">FIFA WORLD CUP</div>
+      <div class="title-sub">USA · CANADA · MEXICO</div>
+      <div class="title-bn">সম্পূর্ণ ম্যাচ সময়সূচী — বাংলাদেশ সময় (BST)</div>
+    </div>
+  </div>
+
+  <div class="host-badges">
+    <span class="host-badge">🇺🇸 যুক্তরাষ্ট্র — ৭৮ ম্যাচ</span>
+    <span class="host-badge">🇨🇦 কানাডা — ১৩ ম্যাচ</span>
+    <span class="host-badge">🇲🇽 মেক্সিকো — ১৩ ম্যাচ</span>
+    <span class="host-badge">📅 ১১ জুন – ১৯ জুলাই ২০২৬</span>
+  </div>
+</header>
+
+<!-- STAGE NAVIGATION -->
+<div class="stage-nav">
+  <button class="stage-btn active" onclick="showStage('group')">⚽ গ্রুপ পর্ব</button>
+  <button class="stage-btn" onclick="showStage('r32')">⚔️ রাউন্ড অব ৩২</button>
+  <button class="stage-btn" onclick="showStage('r16')">🔥 রাউন্ড অব ১৬</button>
+  <button class="stage-btn" onclick="showStage('qf')">🏅 কোয়ার্টার ফাইনাল</button>
+  <button class="stage-btn" onclick="showStage('sf')">🌟 সেমিফাইনাল</button>
+  <button class="stage-btn" onclick="showStage('f')">🏆 ফাইনাল</button>
+</div>
+
+<main>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat-chip"><div class="stat-num">48</div><div class="stat-lbl">দল</div></div>
+  <div class="stat-chip"><div class="stat-num">104</div><div class="stat-lbl">ম্যাচ</div></div>
+  <div class="stat-chip"><div class="stat-num">16</div><div class="stat-lbl">ভেন্যু</div></div>
+  <div class="stat-chip"><div class="stat-num">39</div><div class="stat-lbl">দিন</div></div>
+  <div class="stat-chip"><div class="stat-num">12</div><div class="stat-lbl">গ্রুপ</div></div>
+</div>
+
+<!-- GROUP STAGE -->
+<div id="stage-group" class="stage-section visible">
+  <div class="stage-header">
+    <span class="stage-icon">⚽</span>
+    <div>
+      <div class="stage-title">গ্রুপ পর্ব</div>
+      <div class="stage-dates">১১ জুন — ২৭ জুন ২০২৬ | ৪৮ দল, ১২ গ্রুপ (A–L)</div>
+    </div>
+  </div>
+  <div id="group-matches"></div>
+</div>
+
+<!-- ROUND OF 32 -->
+<div id="stage-r32" class="stage-section">
+  <div class="stage-header">
+    <span class="stage-icon">⚔️</span>
+    <div>
+      <div class="stage-title">রাউন্ড অব ৩২</div>
+      <div class="stage-dates">২৮ জুন — ৩ জুলাই ২০২৬ | নকআউট পর্ব শুরু</div>
+    </div>
+  </div>
+  <div id="r32-matches"></div>
+</div>
+
+<!-- ROUND OF 16 -->
+<div id="stage-r16" class="stage-section">
+  <div class="stage-header">
+    <span class="stage-icon">🔥</span>
+    <div>
+      <div class="stage-title">রাউন্ড অব ১৬</div>
+      <div class="stage-dates">৪ জুলাই — ৭ জুলাই ২০২৬</div>
+    </div>
+  </div>
+  <div id="r16-matches"></div>
+</div>
+
+<!-- QUARTERFINALS -->
+<div id="stage-qf" class="stage-section">
+  <div class="stage-header">
+    <span class="stage-icon">🏅</span>
+    <div>
+      <div class="stage-title">কোয়ার্টার ফাইনাল</div>
+      <div class="stage-dates">৯ জুলাই — ১১ জুলাই ২০২৬</div>
+    </div>
+  </div>
+  <div id="qf-matches"></div>
+</div>
+
+<!-- SEMIFINALS -->
+<div id="stage-sf" class="stage-section">
+  <div class="stage-header">
+    <span class="stage-icon">🌟</span>
+    <div>
+      <div class="stage-title">সেমিফাইনাল</div>
+      <div class="stage-dates">১৪ জুলাই — ১৫ জুলাই ২০২৬</div>
+    </div>
+  </div>
+  <div id="sf-matches"></div>
+</div>
+
+<!-- FINAL -->
+<div id="stage-f" class="stage-section">
+  <div class="stage-header">
+    <span class="stage-icon">🏆</span>
+    <div>
+      <div class="stage-title">ফাইনাল ও তৃতীয় স্থান</div>
+      <div class="stage-dates">১৮ জুলাই — ১৯ জুলাই ২০২৬</div>
+    </div>
+  </div>
+  <div id="f-matches"></div>
+</div>
+
+</main>
+
+<footer>
+  <div>🏆 FIFA বিশ্বকাপ ২০২৬ — সকল সময় বাংলাদেশ মান সময় (BST, UTC+6) অনুযায়ী</div>
+  <div style="margin-top:6px; opacity:0.5">তারিখ ও সময় FIFA কর্তৃক নিশ্চিত করা তথ্য অনুযায়ী। নকআউট পর্বের প্রতিপক্ষ গ্রুপ পর্বের ফলাফলের পর নির্ধারিত হবে।</div>
+</footer>
+
+<script>
+// ============================================================
+// ALL MATCH DATA — Times stored in ET (UTC-4 during EDT)
+// We convert to BST (UTC+6) = ET + 10 hours
+// ============================================================
+
+const ET_TO_BST = 10; // hours offset from ET to BST
+
+// Helper: parse ET datetime string, return UTC ms
+function etToUTC(dateStr, timeStr) {
+  // dateStr: "2026-06-11", timeStr: "15:00"
+  const [h, m] = timeStr.split(':').map(Number);
+  // ET during EDT is UTC-4, but some matches cross DST
+  // EDT ends Nov 1, 2026 — all WC matches are during EDT (UTC-4)
+  const etOffsetH = -4;
+  const d = new Date(`${dateStr}T${timeStr.padStart(5,'0')}:00`);
+  // d is parsed as local; we treat it as ET
+  // Return UTC ms
+  return d.getTime() - (etOffsetH * 3600000);
+}
+
+function utcToBST(utcMs) {
+  return new Date(utcMs + 6 * 3600000);
+}
+
+function formatBSTDate(d) {
+  const days = ['রবিবার','সোমবার','মঙ্গলবার','বুধবার','বৃহস্পতিবার','শুক্রবার','শনিবার'];
+  const months = ['জানুয়ারি','ফেব্রুয়ারি','মার্চ','এপ্রিল','মে','জুন','জুলাই','আগস্ট','সেপ্টেম্বর','অক্টোবর','নভেম্বর','ডিসেম্বর'];
+  return `${days[d.getUTCDay()]}, ${d.getUTCDate()} ${months[d.getUTCMonth()]}`;
+}
+
+function formatBSTTime(d) {
+  const h = d.getUTCHours();
+  const m = d.getUTCMinutes();
+  const ampm = h >= 12 ? 'PM' : 'AM';
+  const h12 = h % 12 || 12;
+  return `${String(h12).padStart(2,'0')}:${String(m).padStart(2,'0')} ${ampm}`;
+}
+
+function pad2(n) { return String(n).padStart(2,'0'); }
+
+// ============================================================
+// MATCH DATABASE
+// format: { no, group, home, away, dateET, timeET, venue, city, country, stage, koDesc }
+// ============================================================
+
+const GROUP_MATCHES = [
+  // June 11
+  {group:'A', home:'মেক্সিকো 🇲🇽', away:'দক্ষিণ আফ্রিকা 🇿🇦', dateET:'2026-06-11', timeET:'15:00', venue:'এস্তাদিও আজতেকা', city:'মেক্সিকো সিটি', country:'🇲🇽'},
+  {group:'A', home:'দক্ষিণ কোরিয়া 🇰🇷', away:'চেচিয়া 🇨🇿', dateET:'2026-06-11', timeET:'22:00', venue:'এস্তাদিও আকরোন', city:'জাপোপান', country:'🇲🇽'},
+  // June 12
+  {group:'B', home:'কানাডা 🇨🇦', away:'বসনিয়া ও হার্জেগোভিনা 🇧🇦', dateET:'2026-06-12', timeET:'15:00', venue:'BMO ফিল্ড', city:'টরন্টো', country:'🇨🇦'},
+  {group:'D', home:'যুক্তরাষ্ট্র 🇺🇸', away:'প্যারাগুয়ে 🇵🇾', dateET:'2026-06-12', timeET:'21:00', venue:'সোফি স্টেডিয়াম', city:'ইংলউড (LA)', country:'🇺🇸'},
+  // June 13
+  {group:'B', home:'কাতার 🇶🇦', away:'সুইজারল্যান্ড 🇨🇭', dateET:'2026-06-13', timeET:'15:00', venue:"লেভিস স্টেডিয়াম", city:'সান্তা ক্লারা', country:'🇺🇸'},
+  {group:'C', home:'ব্রাজিল 🇧🇷', away:'মরোক্কো 🇲🇦', dateET:'2026-06-13', timeET:'18:00', venue:'মেটলাইফ স্টেডিয়াম', city:'ইস্ট রাদারফোর্ড (NY)', country:'🇺🇸'},
+  {group:'C', home:'হাইতি 🇭🇹', away:'স্কটল্যান্ড 🏴󠁧󠁢󠁳󠁣󠁴󠁿', dateET:'2026-06-13', timeET:'21:00', venue:'গিলেট স্টেডিয়াম', city:'ফক্সবোরো', country:'🇺🇸'},
+  // June 14
+  {group:'D', home:'অস্ট্রেলিয়া 🇦🇺', away:'তুরস্ক 🇹🇷', dateET:'2026-06-14', timeET:'00:00', venue:'BC প্লেস', city:'ভ্যাঙ্কুভার', country:'🇨🇦'},
+  {group:'E', home:'জার্মানি 🇩🇪', away:'কুরাসাও 🇨🇼', dateET:'2026-06-14', timeET:'13:00', venue:'NRG স্টেডিয়াম', city:'হিউস্টন', country:'🇺🇸'},
+  {group:'F', home:'নেদারল্যান্ডস 🇳🇱', away:'জাপান 🇯🇵', dateET:'2026-06-14', timeET:'16:00', venue:'AT&T স্টেডিয়াম', city:'আর্লিংটন (ড্যালাস)', country:'🇺🇸'},
+  {group:'E', home:'আইভোরি কোস্ট 🇨🇮', away:'ইকুয়েডর 🇪🇨', dateET:'2026-06-14', timeET:'19:00', venue:'লিঙ্কন ফিনান্সিয়াল ফিল্ড', city:'ফিলাডেলফিয়া', country:'🇺🇸'},
+  {group:'F', home:'সুইডেন 🇸🇪', away:'তিউনিসিয়া 🇹🇳', dateET:'2026-06-14', timeET:'22:00', venue:'এস্তাদিও BBVA', city:'মন্টেরে', country:'🇲🇽'},
+  // June 15
+  {group:'H', home:'স্পেন 🇪🇸', away:'কেপ ভার্ড 🇨🇻', dateET:'2026-06-15', timeET:'12:00', venue:'মার্সিডিজ-বেঞ্জ স্টেডিয়াম', city:'আটলান্টা', country:'🇺🇸'},
+  {group:'G', home:'বেলজিয়াম 🇧🇪', away:'মিশর 🇪🇬', dateET:'2026-06-15', timeET:'15:00', venue:'লুমেন ফিল্ড', city:'সিয়াটল', country:'🇺🇸'},
+  {group:'H', home:'সৌদি আরব 🇸🇦', away:'উরুগুয়ে 🇺🇾', dateET:'2026-06-15', timeET:'18:00', venue:'হার্ড রক স্টেডিয়াম', city:'মায়ামি', country:'🇺🇸'},
+  {group:'G', home:'ইরান 🇮🇷', away:'নিউজিল্যান্ড 🇳🇿', dateET:'2026-06-15', timeET:'21:00', venue:'সোফি স্টেডিয়াম', city:'ইংলউড (LA)', country:'🇺🇸'},
+  // June 16
+  {group:'I', home:'ফ্রান্স 🇫🇷', away:'সেনেগাল 🇸🇳', dateET:'2026-06-16', timeET:'15:00', venue:'মেটলাইফ স্টেডিয়াম', city:'ইস্ট রাদারফোর্ড (NY)', country:'🇺🇸'},
+  {group:'I', home:'ইরাক 🇮🇶', away:'নরওয়ে 🇳🇴', dateET:'2026-06-16', timeET:'18:00', venue:'গিলেট স্টেডিয়াম', city:'ফক্সবোরো', country:'🇺🇸'},
+  {group:'J', home:'আর্জেন্টিনা 🇦🇷', away:'আলজেরিয়া 🇩🇿', dateET:'2026-06-16', timeET:'21:00', venue:'অ্যারোহেড স্টেডিয়াম', city:'কানসাস সিটি', country:'🇺🇸'},
+  // June 17
+  {group:'J', home:'অস্ট্রিয়া 🇦🇹', away:'জর্ডান 🇯🇴', dateET:'2026-06-17', timeET:'00:00', venue:"লেভিস স্টেডিয়াম", city:'সান্তা ক্লারা', country:'🇺🇸'},
+  {group:'K', home:'পর্তুগাল 🇵🇹', away:'ডিআর কঙ্গো 🇨🇩', dateET:'2026-06-17', timeET:'13:00', venue:'NRG স্টেডিয়াম', city:'হিউস্টন', country:'🇺🇸'},
+  {group:'L', home:'ইংল্যান্ড 🏴󠁧󠁢󠁥󠁮󠁧󠁿', away:'ক্রোয়েশিয়া 🇭🇷', dateET:'2026-06-17', timeET:'16:00', venue:'AT&T স্টেডিয়াম', city:'আর্লিংটন (ড্যালাস)', country:'🇺🇸'},
+  {group:'L', home:'ঘানা 🇬🇭', away:'পানামা 🇵🇦', dateET:'2026-06-17', timeET:'19:00', venue:'BMO ফিল্ড', city:'টরন্টো', country:'🇨🇦'},
+  {group:'K', home:'উজবেকিস্তান 🇺🇿', away:'কলম্বিয়া 🇨🇴', dateET:'2026-06-17', timeET:'22:00', venue:'এস্তাদিও আজতেকা', city:'মেক্সিকো সিটি', country:'🇲🇽'},
+  // June 18
+  {group:'A', home:'চেচিয়া 🇨🇿', away:'দক্ষিণ আফ্রিকা 🇿🇦', dateET:'2026-06-18', timeET:'12:00', venue:'মার্সিডিজ-বেঞ্জ স্টেডিয়াম', city:'আটলান্টা', country:'🇺🇸'},
+  {group:'B', home:'সুইজারল্যান্ড 🇨🇭', away:'বসনিয়া ও হার্জেগোভিনা 🇧🇦', dateET:'2026-06-18', timeET:'15:00', venue:'সোফি স্টেডিয়াম', city:'ইংলউড (LA)', country:'🇺🇸'},
+  {group:'B', home:'কানাডা 🇨🇦', away:'কাতার 🇶🇦', dateET:'2026-06-18', timeET:'18:00', venue:'BC প্লেস', city:'ভ্যাঙ্কুভার', country:'🇨🇦'},
+  {group:'A', home:'মেক্সিকো 🇲🇽', away:'দক্ষিণ কোরিয়া 🇰🇷', dateET:'2026-06-18', timeET:'21:00', venue:'এস্তাদিও আকরোন', city:'জাপোপান', country:'🇲🇽'},
+  // June 19
+  {group:'D', home:'যুক্তরাষ্ট্র 🇺🇸', away:'অস্ট্রেলিয়া 🇦🇺', dateET:'2026-06-19', timeET:'15:00', venue:'লুমেন ফিল্ড', city:'সিয়াটল', country:'🇺🇸'},
+  {group:'C', home:'স্কটল্যান্ড 🏴󠁧󠁢󠁳󠁣󠁴󠁿', away:'মরোক্কো 🇲🇦', dateET:'2026-06-19', timeET:'18:00', venue:'গিলেট স্টেডিয়াম', city:'ফক্সবোরো', country:'🇺🇸'},
+  {group:'C', home:'ব্রাজিল 🇧🇷', away:'হাইতি 🇭🇹', dateET:'2026-06-19', timeET:'20:30', venue:'লিঙ্কন ফিনান্সিয়াল ফিল্ড', city:'ফিলাডেলফিয়া', country:'🇺🇸'},
+  {group:'D', home:'তুরস্ক 🇹🇷', away:'প্যারাগুয়ে 🇵🇾', dateET:'2026-06-19', timeET:'23:00', venue:"লেভিস স্টেডিয়াম", city:'সান্তা ক্লারা', country:'🇺🇸'},
+  // June 20
+  {group:'F', home:'নেদারল্যান্ডস 🇳🇱', away:'সুইডেন 🇸🇪', dateET:'2026-06-20', timeET:'13:00', venue:'NRG স্টেডিয়াম', city:'হিউস্টন', country:'🇺🇸'},
+  {group:'E', home:'জার্মানি 🇩🇪', away:'আইভোরি কোস্ট 🇨🇮', dateET:'2026-06-20', timeET:'16:00', venue:'BMO ফিল্ড', city:'টরন্টো', country:'🇨🇦'},
+  {group:'E', home:'ইকুয়েডর 🇪🇨', away:'কুরাসাও 🇨🇼', dateET:'2026-06-20', timeET:'20:00', venue:'অ্যারোহেড স্টেডিয়াম', city:'কানসাস সিটি', country:'🇺🇸'},
+  // June 21
+  {group:'F', home:'তিউনিসিয়া 🇹🇳', away:'জাপান 🇯🇵', dateET:'2026-06-21', timeET:'00:00', venue:'এস্তাদিও BBVA', city:'মন্টেরে', country:'🇲🇽'},
+  {group:'H', home:'স্পেন 🇪🇸', away:'সৌদি আরব 🇸🇦', dateET:'2026-06-21', timeET:'12:00', venue:'মার্সিডিজ-বেঞ্জ স্টেডিয়াম', city:'আটলান্টা', country:'🇺🇸'},
+  {group:'G', home:'বেলজিয়াম 🇧🇪', away:'ইরান 🇮🇷', dateET:'2026-06-21', timeET:'15:00', venue:'সোফি স্টেডিয়াম', city:'ইংলউড (LA)', country:'🇺🇸'},
+  {group:'H', home:'উরুগুয়ে 🇺🇾', away:'কেপ ভার্ড 🇨🇻', dateET:'2026-06-21', timeET:'18:00', venue:'হার্ড রক স্টেডিয়াম', city:'মায়ামি', country:'🇺🇸'},
+  {group:'G', home:'নিউজিল্যান্ড 🇳🇿', away:'মিশর 🇪🇬', dateET:'2026-06-21', timeET:'21:00', venue:'BC প্লেস', city:'ভ্যাঙ্কুভার', country:'🇨🇦'},
+  // June 22
+  {group:'J', home:'আর্জেন্টিনা 🇦🇷', away:'অস্ট্রিয়া 🇦🇹', dateET:'2026-06-22', timeET:'13:00', venue:'AT&T স্টেডিয়াম', city:'আর্লিংটন (ড্যালাস)', country:'🇺🇸'},
+  {group:'I', home:'ফ্রান্স 🇫🇷', away:'ইরাক 🇮🇶', dateET:'2026-06-22', timeET:'17:00', venue:'লিঙ্কন ফিনান্সিয়াল ফিল্ড', city:'ফিলাডেলফিয়া', country:'🇺🇸'},
+  {group:'I', home:'নরওয়ে 🇳🇴', away:'সেনেগাল 🇸🇳', dateET:'2026-06-22', timeET:'20:00', venue:'মেটলাইফ স্টেডিয়াম', city:'ইস্ট রাদারফোর্ড (NY)', country:'🇺🇸'},
+  {group:'J', home:'জর্ডান 🇯🇴', away:'আলজেরিয়া 🇩🇿', dateET:'2026-06-22', timeET:'23:00', venue:"লেভিস স্টেডিয়াম", city:'সান্তা ক্লারা', country:'🇺🇸'},
+  // June 23
+  {group:'K', home:'পর্তুগাল 🇵🇹', away:'উজবেকিস্তান 🇺🇿', dateET:'2026-06-23', timeET:'13:00', venue:'NRG স্টেডিয়াম', city:'হিউস্টন', country:'🇺🇸'},
+  {group:'L', home:'ইংল্যান্ড 🏴󠁧󠁢󠁥󠁮󠁧󠁿', away:'ঘানা 🇬🇭', dateET:'2026-06-23', timeET:'16:00', venue:'গিলেট স্টেডিয়াম', city:'ফক্সবোরো', country:'🇺🇸'},
+  {group:'L', home:'পানামা 🇵🇦', away:'ক্রোয়েশিয়া 🇭🇷', dateET:'2026-06-23', timeET:'19:00', venue:'BMO ফিল্ড', city:'টরন্টো', country:'🇨🇦'},
+  {group:'K', home:'কলম্বিয়া 🇨🇴', away:'ডিআর কঙ্গো 🇨🇩', dateET:'2026-06-23', timeET:'22:00', venue:'এস্তাদিও আকরোন', city:'জাপোপান', country:'🇲🇽'},
+  // June 24
+  {group:'B', home:'সুইজারল্যান্ড 🇨🇭', away:'কানাডা 🇨🇦', dateET:'2026-06-24', timeET:'15:00', venue:'BC প্লেস', city:'ভ্যাঙ্কুভার', country:'🇨🇦'},
+  {group:'B', home:'বসনিয়া ও হার্জেগোভিনা 🇧🇦', away:'কাতার 🇶🇦', dateET:'2026-06-24', timeET:'15:00', venue:'লুমেন ফিল্ড', city:'সিয়াটল', country:'🇺🇸'},
+  {group:'C', home:'স্কটল্যান্ড 🏴󠁧󠁢󠁳󠁣󠁴󠁿', away:'ব্রাজিল 🇧🇷', dateET:'2026-06-24', timeET:'18:00', venue:'হার্ড রক স্টেডিয়াম', city:'মায়ামি', country:'🇺🇸'},
+  {group:'C', home:'মরোক্কো 🇲🇦', away:'হাইতি 🇭🇹', dateET:'2026-06-24', timeET:'18:00', venue:'মার্সিডিজ-বেঞ্জ স্টেডিয়াম', city:'আটলান্টা', country:'🇺🇸'},
+  {group:'A', home:'চেচিয়া 🇨🇿', away:'মেক্সিকো 🇲🇽', dateET:'2026-06-24', timeET:'21:00', venue:'এস্তাদিও আজতেকা', city:'মেক্সিকো সিটি', country:'🇲🇽'},
+  {group:'A', home:'দক্ষিণ আফ্রিকা 🇿🇦', away:'দক্ষিণ কোরিয়া 🇰🇷', dateET:'2026-06-24', timeET:'21:00', venue:'এস্তাদিও BBVA', city:'মন্টেরে', country:'🇲🇽'},
+  // June 25
+  {group:'E', home:'কুরাসাও 🇨🇼', away:'আইভোরি কোস্ট 🇨🇮', dateET:'2026-06-25', timeET:'16:00', venue:'লিঙ্কন ফিনান্সিয়াল ফিল্ড', city:'ফিলাডেলফিয়া', country:'🇺🇸'},
+  {group:'E', home:'ইকুয়েডর 🇪🇨', away:'জার্মানি 🇩🇪', dateET:'2026-06-25', timeET:'16:00', venue:'মেটলাইফ স্টেডিয়াম', city:'ইস্ট রাদারফোর্ড (NY)', country:'🇺🇸'},
+  {group:'F', home:'জাপান 🇯🇵', away:'সুইডেন 🇸🇪', dateET:'2026-06-25', timeET:'19:00', venue:'AT&T স্টেডিয়াম', city:'আর্লিংটন (ড্যালাস)', country:'🇺🇸'},
+  {group:'F', home:'তিউনিসিয়া 🇹🇳', away:'নেদারল্যান্ডস 🇳🇱', dateET:'2026-06-25', timeET:'19:00', venue:'অ্যারোহেড স্টেডিয়াম', city:'কানসাস সিটি', country:'🇺🇸'},
+  {group:'D', home:'তুরস্ক 🇹🇷', away:'যুক্তরাষ্ট্র 🇺🇸', dateET:'2026-06-25', timeET:'22:00', venue:'সোফি স্টেডিয়াম', city:'ইংলউড (LA)', country:'🇺🇸'},
+  {group:'D', home:'প্যারাগুয়ে 🇵🇾', away:'অস্ট্রেলিয়া 🇦🇺', dateET:'2026-06-25', timeET:'22:00', venue:"লেভিস স্টেডিয়াম", city:'সান্তা ক্লারা', country:'🇺🇸'},
+  // June 26
+  {group:'I', home:'নরওয়ে 🇳🇴', away:'ফ্রান্স 🇫🇷', dateET:'2026-06-26', timeET:'15:00', venue:'গিলেট স্টেডিয়াম', city:'ফক্সবোরো', country:'🇺🇸'},
+  {group:'I', home:'সেনেগাল 🇸🇳', away:'ইরাক 🇮🇶', dateET:'2026-06-26', timeET:'15:00', venue:'BMO ফিল্ড', city:'টরন্টো', country:'🇨🇦'},
+  {group:'H', home:'কেপ ভার্ড 🇨🇻', away:'সৌদি আরব 🇸🇦', dateET:'2026-06-26', timeET:'20:00', venue:'NRG স্টেডিয়াম', city:'হিউস্টন', country:'🇺🇸'},
+  {group:'H', home:'উরুগুয়ে 🇺🇾', away:'স্পেন 🇪🇸', dateET:'2026-06-26', timeET:'20:00', venue:'এস্তাদিও আকরোন', city:'জাপোপান', country:'🇲🇽'},
+  {group:'G', home:'মিশর 🇪🇬', away:'ইরান 🇮🇷', dateET:'2026-06-26', timeET:'23:00', venue:'লুমেন ফিল্ড', city:'সিয়াটল', country:'🇺🇸'},
+  {group:'G', home:'নিউজিল্যান্ড 🇳🇿', away:'বেলজিয়াম 🇧🇪', dateET:'2026-06-26', timeET:'23:00', venue:'BC প্লেস', city:'ভ্যাঙ্কুভার', country:'🇨🇦'},
+  // June 27
+  {group:'L', home:'পানামা 🇵🇦', away:'ইংল্যান্ড 🏴󠁧󠁢󠁥󠁮󠁧󠁿', dateET:'2026-06-27', timeET:'17:00', venue:'মেটলাইফ স্টেডিয়াম', city:'ইস্ট রাদারফোর্ড (NY)', country:'🇺🇸'},
+  {group:'L', home:'ক্রোয়েশিয়া 🇭🇷', away:'ঘানা 🇬🇭', dateET:'2026-06-27', timeET:'17:00', venue:'লিঙ্কন ফিনান্সিয়াল ফিল্ড', city:'ফিলাডেলফিয়া', country:'🇺🇸'},
+  {group:'K', home:'কলম্বিয়া 🇨🇴', away:'পর্তুগাল 🇵🇹', dateET:'2026-06-27', timeET:'19:30', venue:'হার্ড রক স্টেডিয়াম', city:'মায়ামি', country:'🇺🇸'},
+  {group:'K', home:'ডিআর কঙ্গো 🇨🇩', away:'উজবেকিস্তান 🇺🇿', dateET:'2026-06-27', timeET:'19:30', venue:'মার্সিডিজ-বেঞ্জ স্টেডিয়াম', city:'আটলান্টা', country:'🇺🇸'},
+  {group:'J', home:'আলজেরিয়া 🇩🇿', away:'অস্ট্রিয়া 🇦🇹', dateET:'2026-06-27', timeET:'22:00', venue:'অ্যারোহেড স্টেডিয়াম', city:'কানসাস সিটি', country:'🇺🇸'},
+  {group:'J', home:'জর্ডান 🇯🇴', away:'আর্জেন্টিনা 🇦🇷', dateET:'2026-06-27', timeET:'22:00', venue:'AT&T স্টেডিয়াম', city:'আর্লিংটন (ড্যালাস)', country:'🇺🇸'},
+];
+
+// Round of 32 — knockout
+const R32_MATCHES = [
+  {no:73, home:'রানার্স আপ গ্রুপ A', away:'রানার্স আপ গ্রুপ B', dateET:'2026-06-28', timeET:'15:00', venue:'সোফি স্টেডিয়াম', city:'ইংলউড (LA)', country:'🇺🇸', koDesc:'Runner-up A vs Runner-up B'},
+  {no:76, home:'বিজয়ী গ্রুপ C', away:'রানার্স আপ গ্রুপ F', dateET:'2026-06-29', timeET:'13:00', venue:'NRG স্টেডিয়াম', city:'হিউস্টন', country:'🇺🇸', koDesc:'Winner C vs Runner-up F'},
+  {no:74, home:'বিজয়ী গ্রুপ E', away:'সেরা ৩য় (A/B/C/D/F)', dateET:'2026-06-29', timeET:'16:30', venue:'গিলেট স্টেডিয়াম', city:'ফক্সবোরো', country:'🇺🇸', koDesc:'Winner E vs Best 3rd (A/B/C/D/F)'},
+  {no:75, home:'বিজয়ী গ্রুপ F', away:'রানার্স আপ গ্রুপ C', dateET:'2026-06-29', timeET:'21:00', venue:'এস্তাদিও BBVA', city:'মন্টেরে', country:'🇲🇽', koDesc:'Winner F vs Runner-up C'},
+  {no:78, home:'রানার্স আপ গ্রুপ E', away:'রানার্স আপ গ্রুপ I', dateET:'2026-06-30', timeET:'13:00', venue:'AT&T স্টেডিয়াম', city:'আর্লিংটন (ড্যালাস)', country:'🇺🇸', koDesc:'Runner-up E vs Runner-up I'},
+  {no:77, home:'বিজয়ী গ্রুপ I', away:'সেরা ৩য় (C/D/F/G/H)', dateET:'2026-06-30', timeET:'17:00', venue:'মেটলাইফ স্টেডিয়াম', city:'ইস্ট রাদারফোর্ড (NY)', country:'🇺🇸', koDesc:'Winner I vs Best 3rd (C/D/F/G/H)'},
+  {no:79, home:'বিজয়ী গ্রুপ A', away:'সেরা ৩য় (C/E/F/H/I)', dateET:'2026-06-30', timeET:'21:00', venue:'এস্তাদিও আজতেকা', city:'মেক্সিকো সিটি', country:'🇲🇽', koDesc:'Winner A vs Best 3rd (C/E/F/H/I)'},
+  {no:80, home:'বিজয়ী গ্রুপ L', away:'সেরা ৩য় (E/H/I/J/K)', dateET:'2026-07-01', timeET:'12:00', venue:'মার্সিডিজ-বেঞ্জ স্টেডিয়াম', city:'আটলান্টা', country:'🇺🇸', koDesc:'Winner L vs Best 3rd (E/H/I/J/K)'},
+  {no:82, home:'বিজয়ী গ্রুপ G', away:'সেরা ৩য় (A/E/H/I/J)', dateET:'2026-07-01', timeET:'16:00', venue:'লুমেন ফিল্ড', city:'সিয়াটল', country:'🇺🇸', koDesc:'Winner G vs Best 3rd (A/E/H/I/J)'},
+  {no:81, home:'বিজয়ী গ্রুপ D', away:'সেরা ৩য় (B/E/F/I/J)', dateET:'2026-07-01', timeET:'20:00', venue:"লেভিস স্টেডিয়াম", city:'সান্তা ক্লারা', country:'🇺🇸', koDesc:'Winner D vs Best 3rd (B/E/F/I/J)'},
+  {no:84, home:'বিজয়ী গ্রুপ H', away:'রানার্স আপ গ্রুপ J', dateET:'2026-07-02', timeET:'15:00', venue:'সোফি স্টেডিয়াম', city:'ইংলউড (LA)', country:'🇺🇸', koDesc:'Winner H vs Runner-up J'},
+  {no:83, home:'রানার্স আপ গ্রুপ K', away:'রানার্স আপ গ্রুপ L', dateET:'2026-07-02', timeET:'19:00', venue:'BMO ফিল্ড', city:'টরন্টো', country:'🇨🇦', koDesc:'Runner-up K vs Runner-up L'},
+  {no:85, home:'বিজয়ী গ্রুপ B', away:'সেরা ৩য় (E/F/G/I/J)', dateET:'2026-07-02', timeET:'23:00', venue:'BC প্লেস', city:'ভ্যাঙ্কুভার', country:'🇨🇦', koDesc:'Winner B vs Best 3rd (E/F/G/I/J)'},
+  {no:88, home:'রানার্স আপ গ্রুপ D', away:'রানার্স আপ গ্রুপ G', dateET:'2026-07-03', timeET:'14:00', venue:'AT&T স্টেডিয়াম', city:'আর্লিংটন (ড্যালাস)', country:'🇺🇸', koDesc:'Runner-up D vs Runner-up G'},
+  {no:86, home:'বিজয়ী গ্রুপ J', away:'রানার্স আপ গ্রুপ H', dateET:'2026-07-03', timeET:'18:00', venue:'হার্ড রক স্টেডিয়াম', city:'মায়ামি', country:'🇺🇸', koDesc:'Winner J vs Runner-up H'},
+  {no:87, home:'বিজয়ী গ্রুপ K', away:'সেরা ৩য় (D/E/I/J/L)', dateET:'2026-07-03', timeET:'21:30', venue:'অ্যারোহেড স্টেডিয়াম', city:'কানসাস সিটি', country:'🇺🇸', koDesc:'Winner K vs Best 3rd (D/E/I/J/L)'},
+];
+
+const R16_MATCHES = [
+  {no:90, home:'বিজয়ী ম্যাচ ৭৩', away:'বিজয়ী ম্যাচ ৭৫', dateET:'2026-07-04', timeET:'13:00', venue:'NRG স্টেডিয়াম', city:'হিউস্টন', country:'🇺🇸', koDesc:'Winner M73 vs Winner M75'},
+  {no:89, home:'বিজয়ী ম্যাচ ৭৪', away:'বিজয়ী ম্যাচ ৭৭', dateET:'2026-07-04', timeET:'17:00', venue:'লিঙ্কন ফিনান্সিয়াল ফিল্ড', city:'ফিলাডেলফিয়া', country:'🇺🇸', koDesc:'Winner M74 vs Winner M77'},
+  {no:91, home:'বিজয়ী ম্যাচ ৭৬', away:'বিজয়ী ম্যাচ ৭৮', dateET:'2026-07-05', timeET:'16:00', venue:'মেটলাইফ স্টেডিয়াম', city:'ইস্ট রাদারফোর্ড (NY)', country:'🇺🇸', koDesc:'Winner M76 vs Winner M78'},
+  {no:92, home:'বিজয়ী ম্যাচ ৭৯', away:'বিজয়ী ম্যাচ ৮০', dateET:'2026-07-05', timeET:'20:00', venue:'এস্তাদিও আজতেকা', city:'মেক্সিকো সিটি', country:'🇲🇽', koDesc:'Winner M79 vs Winner M80'},
+  {no:93, home:'বিজয়ী ম্যাচ ৮৩', away:'বিজয়ী ম্যাচ ৮৪', dateET:'2026-07-06', timeET:'15:00', venue:'AT&T স্টেডিয়াম', city:'আর্লিংটন (ড্যালাস)', country:'🇺🇸', koDesc:'Winner M83 vs Winner M84'},
+  {no:94, home:'বিজয়ী ম্যাচ ৮১', away:'বিজয়ী ম্যাচ ৮২', dateET:'2026-07-06', timeET:'20:00', venue:'লুমেন ফিল্ড', city:'সিয়াটল', country:'🇺🇸', koDesc:'Winner M81 vs Winner M82'},
+  {no:95, home:'বিজয়ী ম্যাচ ৮৬', away:'বিজয়ী ম্যাচ ৮৮', dateET:'2026-07-07', timeET:'12:00', venue:'মার্সিডিজ-বেঞ্জ স্টেডিয়াম', city:'আটলান্টা', country:'🇺🇸', koDesc:'Winner M86 vs Winner M88'},
+  {no:96, home:'বিজয়ী ম্যাচ ৮৫', away:'বিজয়ী ম্যাচ ৮৭', dateET:'2026-07-07', timeET:'16:00', venue:'BC প্লেস', city:'ভ্যাঙ্কুভার', country:'🇨🇦', koDesc:'Winner M85 vs Winner M87'},
+];
+
+const QF_MATCHES = [
+  {no:97, home:'বিজয়ী ম্যাচ ৮৯', away:'বিজয়ী ম্যাচ ৯০', dateET:'2026-07-09', timeET:'16:00', venue:'গিলেট স্টেডিয়াম', city:'ফক্সবোরো', country:'🇺🇸', koDesc:'Winner M89 vs Winner M90'},
+  {no:98, home:'বিজয়ী ম্যাচ ৯৩', away:'বিজয়ী ম্যাচ ৯৪', dateET:'2026-07-10', timeET:'15:00', venue:'সোফি স্টেডিয়াম', city:'ইংলউড (LA)', country:'🇺🇸', koDesc:'Winner M93 vs Winner M94'},
+  {no:99, home:'বিজয়ী ম্যাচ ৯১', away:'বিজয়ী ম্যাচ ৯২', dateET:'2026-07-11', timeET:'17:00', venue:'হার্ড রক স্টেডিয়াম', city:'মায়ামি', country:'🇺🇸', koDesc:'Winner M91 vs Winner M92'},
+  {no:100, home:'বিজয়ী ম্যাচ ৯৫', away:'বিজয়ী ম্যাচ ৯৬', dateET:'2026-07-11', timeET:'21:00', venue:'অ্যারোহেড স্টেডিয়াম', city:'কানসাস সিটি', country:'🇺🇸', koDesc:'Winner M95 vs Winner M96'},
+];
+
+const SF_MATCHES = [
+  {no:101, home:'বিজয়ী ম্যাচ ৯৭', away:'বিজয়ী ম্যাচ ৯৮', dateET:'2026-07-14', timeET:'15:00', venue:'AT&T স্টেডিয়াম', city:'আর্লিংটন (ড্যালাস)', country:'🇺🇸', koDesc:'Winner M97 vs Winner M98'},
+  {no:102, home:'বিজয়ী ম্যাচ ৯৯', away:'বিজয়ী ম্যাচ ১০০', dateET:'2026-07-15', timeET:'15:00', venue:'মার্সিডিজ-বেঞ্জ স্টেডিয়াম', city:'আটলান্টা', country:'🇺🇸', koDesc:'Winner M99 vs Winner M100'},
+];
+
+const FINAL_MATCHES = [
+  {no:103, home:'হারা দল ম্যাচ ১০১', away:'হারা দল ম্যাচ ১০২', dateET:'2026-07-18', timeET:'17:00', venue:'হার্ড রক স্টেডিয়াম', city:'মায়ামি', country:'🇺🇸', koDesc:'3rd Place: Loser M101 vs Loser M102', isThird:true},
+  {no:104, home:'বিজয়ী ম্যাচ ১০১', away:'বিজয়ী ম্যাচ ১০২', dateET:'2026-07-19', timeET:'15:00', venue:'মেটলাইফ স্টেডিয়াম', city:'নিউ জার্সি (নিউ ইয়র্ক)', country:'🇺🇸', koDesc:'🏆 THE FINAL', isFinal:true},
+];
+
+// ============================================================
+// RENDER FUNCTIONS
+// ============================================================
+
+function getMatchUTC(m) {
+  // Parse date and time, treat as ET (UTC-4 during EDT)
+  const [y,mo,d] = m.dateET.split('-').map(Number);
+  const [h,mi] = m.timeET.split(':').map(Number);
+  // Create date in ET — EDT is UTC-4
+  return Date.UTC(y, mo-1, d, h+4, mi, 0); // +4 to convert ET to UTC
+}
+
+function countdownHTML(utcMs, id) {
+  return `<div class="cd-box" id="cd-${id}"><div class="cd-segments"><div class="cd-seg"><span class="cd-num" id="cd-${id}-d">--</span><span class="cd-unit">দিন</span></div><span class="cd-sep">:</span><div class="cd-seg"><span class="cd-num" id="cd-${id}-h">--</span><span class="cd-unit">ঘন্টা</span></div><span class="cd-sep">:</span><div class="cd-seg"><span class="cd-num" id="cd-${id}-m">--</span><span class="cd-unit">মিনিট</span></div><span class="cd-sep">:</span><div class="cd-seg"><span class="cd-num" id="cd-${id}-s">--</span><span class="cd-unit">সেকেন্ড</span></div></div></div>`;
+}
+
+function renderGroupMatches(matches, container) {
+  // Group by date
+  const byDate = {};
+  matches.forEach((m,i) => {
+    const utcMs = getMatchUTC(m);
+    const bst = utcToBST(utcMs);
+    const dk = `${bst.getUTCFullYear()}-${String(bst.getUTCMonth()+1).padStart(2,'0')}-${String(bst.getUTCDate()).padStart(2,'0')}`;
+    if(!byDate[dk]) byDate[dk] = [];
+    byDate[dk].push({...m, utcMs, bst, idx: 'g'+i});
+  });
+
+  let html = '';
+  Object.keys(byDate).sort().forEach(dk => {
+    const dayMatches = byDate[dk];
+    const sample = dayMatches[0];
+    html += `<div class="section-day"><span class="day-label">${formatBSTDate(sample.bst)}</span><div class="day-line"></div><span class="day-count">${dayMatches.length}টি ম্যাচ</span></div>`;
+    html += `<table class="match-table"><thead><tr><th>গ্রুপ</th><th>ম্যাচ</th><th>ভেন্যু</th><th>তারিখ ও সময় (BST)</th><th>কাউন্টডাউন</th></tr></thead><tbody>`;
+    dayMatches.forEach(m => {
+      const now = Date.now();
+      const isPast = now > m.utcMs + 110*60*1000;
+      const isLive = now >= m.utcMs && now <= m.utcMs + 110*60*1000;
+      const rowClass = isPast ? 'match-row past' : (isLive ? 'match-row live' : 'match-row');
+      html += `<tr class="${rowClass}">
+        <td data-label="গ্রুপ"><span class="group-badge">${m.group}</span></td>
+        <td data-label="ম্যাচ"><div class="match-teams"><div class="teams-text">${m.home}<span class="vs">VS</span>${m.away}</div></div></td>
+        <td data-label="ভেন্যু"><div class="venue-name">${m.venue}</div><div class="venue-country">${m.city} ${m.country}</div></td>
+        <td data-label="সময়"><div class="datetime-cell"><div class="match-time">${formatBSTTime(sample.bst !== m.bst ? m.bst : m.bst)}</div><div class="match-date">${formatBSTDate(m.bst)}</div><div class="match-tz">বাংলাদেশ মান সময়</div></div></td>
+        <td data-label="কাউন্টডাউন">${isPast ? '<span class="cd-done">সম্পন্ন</span>' : (isLive ? '<span class="cd-live">● লাইভ</span>' : countdownHTML(m.utcMs, m.idx))}</td>
+      </tr>`;
+    });
+    html += '</tbody></table>';
+  });
+  container.innerHTML = html;
+}
+
+function renderKOMatches(matches, container) {
+  const byDate = {};
+  matches.forEach((m,i) => {
+    const utcMs = getMatchUTC(m);
+    const bst = utcToBST(utcMs);
+    const dk = `${bst.getUTCFullYear()}-${String(bst.getUTCMonth()+1).padStart(2,'0')}-${String(bst.getUTCDate()).padStart(2,'0')}`;
+    if(!byDate[dk]) byDate[dk] = [];
+    byDate[dk].push({...m, utcMs, bst, idx:'ko'+m.no});
+  });
+
+  let html = '';
+  Object.keys(byDate).sort().forEach(dk => {
+    const dayMatches = byDate[dk];
+    const sample = dayMatches[0];
+    html += `<div class="section-day"><span class="day-label">${formatBSTDate(sample.bst)}</span><div class="day-line"></div><span class="day-count">${dayMatches.length}টি ম্যাচ</span></div>`;
+    html += `<table class="match-table"><thead><tr><th>ম্যাচ নং</th><th>দল</th><th>ভেন্যু</th><th>তারিখ ও সময় (BST)</th><th>কাউন্টডাউন</th></tr></thead><tbody>`;
+    dayMatches.forEach(m => {
+      const now = Date.now();
+      const isPast = now > m.utcMs + 120*60*1000;
+      const isLive = now >= m.utcMs && now <= m.utcMs + 120*60*1000;
+      const rowClass = isPast ? 'match-row past' : (isLive ? 'match-row live' : 'match-row') + (m.isFinal ? ' final-row' : '');
+      html += `<tr class="${rowClass}">
+        <td data-label="ম্যাচ নং"><span class="match-no-badge">#${m.no}</span>${m.isThird ? '<div style="font-size:11px;color:#f57c00;margin-top:4px">তৃতীয় স্থান</div>' : ''}${m.isFinal ? '<div style="font-size:11px;color:var(--gold);margin-top:4px">🏆 ফাইনাল</div>' : ''}</td>
+        <td data-label="দল"><div class="teams-text">${m.home}<span class="vs">VS</span>${m.away}</div><div class="ko-desc">${m.koDesc}</div></td>
+        <td data-label="ভেন্যু"><div class="venue-name">${m.venue}</div><div class="venue-country">${m.city} ${m.country}</div></td>
+        <td data-label="সময়"><div class="datetime-cell"><div class="match-time">${formatBSTTime(m.bst)}</div><div class="match-date">${formatBSTDate(m.bst)}</div><div class="match-tz">বাংলাদেশ মান সময়</div></div></td>
+        <td data-label="কাউন্টডাউন">${isPast ? '<span class="cd-done">সম্পন্ন</span>' : (isLive ? '<span class="cd-live">● লাইভ</span>' : countdownHTML(m.utcMs, m.idx))}</td>
+      </tr>`;
+    });
+    html += '</tbody></table>';
+  });
+  container.innerHTML = html;
+}
+
+// ============================================================
+// INIT
+// ============================================================
+
+function init() {
+  // Pre-compute BST for group matches
+  GROUP_MATCHES.forEach((m,i) => {
+    m.utcMs = getMatchUTC(m);
+    m.bst = utcToBST(m.utcMs);
+    m.idx = 'g'+i;
+  });
+
+  renderGroupMatches(GROUP_MATCHES, document.getElementById('group-matches'));
+  renderKOMatches(R32_MATCHES, document.getElementById('r32-matches'));
+  renderKOMatches(R16_MATCHES, document.getElementById('r16-matches'));
+  renderKOMatches(QF_MATCHES, document.getElementById('qf-matches'));
+  renderKOMatches(SF_MATCHES, document.getElementById('sf-matches'));
+  renderKOMatches(FINAL_MATCHES, document.getElementById('f-matches'));
+
+  startCountdowns();
+}
+
+function startCountdowns() {
+  setInterval(() => {
+    const now = Date.now();
+    // All matches
+    const all = [
+      ...GROUP_MATCHES,
+      ...R32_MATCHES.map(m => ({...m, utcMs: getMatchUTC(m), idx:'ko'+m.no})),
+      ...R16_MATCHES.map(m => ({...m, utcMs: getMatchUTC(m), idx:'ko'+m.no})),
+      ...QF_MATCHES.map(m => ({...m, utcMs: getMatchUTC(m), idx:'ko'+m.no})),
+      ...SF_MATCHES.map(m => ({...m, utcMs: getMatchUTC(m), idx:'ko'+m.no})),
+      ...FINAL_MATCHES.map(m => ({...m, utcMs: getMatchUTC(m), idx:'ko'+m.no})),
+    ];
+
+    all.forEach(m => {
+      const id = m.idx;
+      const diff = m.utcMs - now;
+      if(diff <= 0) return; // live or past handled on render
+
+      const totalSec = Math.floor(diff/1000);
+      const s = totalSec % 60;
+      const totalMin = Math.floor(totalSec/60);
+      const mi = totalMin % 60;
+      const totalH = Math.floor(totalMin/60);
+      const h = totalH % 24;
+      const d = Math.floor(totalH/24);
+
+      const ds = document.getElementById(`cd-${id}-d`);
+      const hs = document.getElementById(`cd-${id}-h`);
+      const ms = document.getElementById(`cd-${id}-m`);
+      const ss = document.getElementById(`cd-${id}-s`);
+      if(ds) ds.textContent = pad2(d);
+      if(hs) hs.textContent = pad2(h);
+      if(ms) ms.textContent = pad2(mi);
+      if(ss) ss.textContent = pad2(s);
+    });
+  }, 1000);
+}
+
+function showStage(stage) {
+  document.querySelectorAll('.stage-section').forEach(el => el.classList.remove('visible'));
+  document.getElementById('stage-'+stage).classList.add('visible');
+  document.querySelectorAll('.stage-btn').forEach(btn => btn.classList.remove('active'));
+  event.target.classList.add('active');
+}
+
+window.addEventListener('DOMContentLoaded', init);
+
+// PWA Service Worker
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js').catch(() => {});
+  });
+}
+
+// Install prompt
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', e => {
+  e.preventDefault();
+  deferredPrompt = e;
+  const banner = document.createElement('div');
+  banner.id = 'install-banner';
+  banner.style.cssText = `position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#FFD700,#FFA500);color:#0a0e1a;padding:12px 24px;border-radius:30px;font-family:'Oswald',sans-serif;font-size:14px;letter-spacing:1px;cursor:pointer;z-index:9999;box-shadow:0 4px 20px rgba(255,215,0,0.4);display:flex;align-items:center;gap:10px;white-space:nowrap;`;
+  banner.innerHTML = `<span style="font-size:20px">📲</span> অ্যাপ হিসেবে ইন্সটল করুন`;
+  banner.onclick = () => {
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then(() => { banner.remove(); deferredPrompt = null; });
+  };
+  document.body.appendChild(banner);
+});
+</script>
+</body>
+</html>
